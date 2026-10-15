@@ -33,6 +33,18 @@ test("splits consecutively numbered prompts sharing one PDF text line", () => {
     );
 });
 
+test("preserves prompts numbered through 10 across wrapped PDF lines", () => {
+    const lines = Array.from({ length: 10 }, (_, index) => {
+        const number = index + 1;
+        return [`${number}. Prompt ${number} first line`, `Prompt ${number} continuation`];
+    }).flat();
+
+    assert.deepEqual(groupLinesIntoPrompts(lines), Array.from({ length: 10 }, (_, index) => {
+        const number = index + 1;
+        return `Prompt ${number} first line Prompt ${number} continuation`;
+    }));
+});
+
 test("ignores unnumbered text before the first prompt", () => {
     assert.deepEqual(
         groupLinesIntoPrompts(["Cover page", "Prompt 1: First prompt"]),
