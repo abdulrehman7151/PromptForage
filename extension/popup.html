@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PromptForage</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">IMAGE PROMPT WORKFLOW</p>
+          <h1>PromptForage</h1>
+        </div>
+        <button id="open-flow" class="button button-quiet" type="button">Open Flow</button>
+      </header>
+
+      <section class="import-card" aria-labelledby="import-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 / SOURCE</p>
+            <h2 id="import-title">Import a prompt PDF</h2>
+          </div>
+          <span id="prompt-count" class="count">0 prompts</span>
+        </div>
+        <label class="file-picker" for="pdf-file">
+          <span class="file-icon" aria-hidden="true">PDF</span>
+          <span><strong>Choose a PDF</strong><small>Numbered, multiline prompts are supported</small></span>
+          <input id="pdf-file" type="file" accept="application/pdf,.pdf">
+        </label>
+        <p id="file-name" class="file-name">No PDF selected</p>
+        <div class="pdf-controls">
+          <button id="change-pdf" class="button button-secondary" type="button">Change PDF</button>
+          <button id="remove-pdf" class="button button-quiet" type="button">Remove PDF</button>
+        </div>
+      </section>
+
+      <section class="review-section" aria-labelledby="review-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / REVIEW</p>
+            <h2 id="review-title">Your prompts</h2>
+          </div>
+          <p class="hint">Edit before sending</p>
+        </div>
+        <div id="prompt-list" class="prompt-list" aria-live="polite"></div>
+      </section>
+
+      <section class="workflow-card" aria-labelledby="workflow-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 / FLOW</p>
+            <h2 id="workflow-title">Batch progress</h2>
+          </div>
+          <span id="batch-status" class="status-pill">Ready</span>
+        </div>
+        <div class="progress-track" aria-label="Batch progress">
+          <span id="progress-bar"></span>
+        </div>
+        <div id="progress-summary" class="progress-summary">Import a PDF to begin.</div>
+        <p id="current-prompt" class="current-prompt">No active prompt</p>
+        <p id="status-message" class="status-message" role="status">Choose a PDF, review the prompts, and open a Google Flow project.</p>
+        <div class="controls">
+          <button id="start-batch" class="button button-primary" type="button">Start batch</button>
+          <button id="pause-batch" class="button button-secondary" type="button">Pause</button>
+          <button id="resume-batch" class="button button-secondary" type="button">Resume</button>
+          <button id="stop-batch" class="button button-quiet" type="button">Stop</button>
+        </div>
+        <div class="controls controls-confirm">
+          <button id="resubmit-current" class="button button-secondary" type="button">Resubmit current</button>
+          <button id="retry-failed" class="button button-secondary" type="button">Retry failed</button>
+        </div>
+        <p class="fine-print">Resume keeps waiting for an in-progress prompt; it does not send it again. If Flow never received that prompt, use Resubmit current and confirm. Start submits prompts one at a time, waits for a new image, and waits for Chrome to finish saving it before continuing. Keep the Flow tab open. Images go to the PromptForage folder inside your Chrome Downloads location.</p>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

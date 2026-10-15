@@ -1,0 +1,57 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+  background: #10111a;
+  color: #f1f1f8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --muted: #a3a4b6;
+  --line: #303142;
+  --accent: #bd9cff;
+}
+
+* { box-sizing: border-box; }
+body { width: 440px; min-height: 560px; max-height: 700px; margin: 0; overflow-y: auto; }
+main { padding: 22px; }
+h1, h2, p { margin: 0; }
+h1 { font-size: 23px; letter-spacing: -0.04em; }
+h2 { font-size: 15px; letter-spacing: -0.02em; }
+.topbar, .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.topbar { margin-bottom: 18px; }
+.eyebrow { color: var(--accent); font-size: 9px; font-weight: 800; letter-spacing: .15em; margin-bottom: 5px; }
+section { margin-bottom: 13px; }
+.import-card, .workflow-card { padding: 15px; border: 1px solid var(--line); border-radius: 14px; background: #181925; }
+.section-heading { margin-bottom: 13px; }
+.count, .hint, .file-name { color: var(--muted); font-size: 11px; }
+.file-picker { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px dashed #56546b; border-radius: 10px; cursor: pointer; }
+.file-picker:hover { border-color: var(--accent); }
+.file-picker strong, .file-picker small { display: block; }
+.file-picker strong { font-size: 12px; }
+.file-picker small { color: var(--muted); font-size: 10px; margin-top: 3px; }
+.file-picker input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.file-icon { padding: 7px 5px; border-radius: 6px; background: #33264a; color: #d6bcff; font-size: 9px; font-weight: 800; }
+.file-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 8px; }
+.pdf-controls { display: flex; gap: 7px; margin-top: 10px; }
+.prompt-list { display: grid; gap: 7px; max-height: 180px; overflow-y: auto; }
+.empty-state { color: var(--muted); padding: 17px 12px; border: 1px dashed var(--line); border-radius: 10px; font-size: 11px; text-align: center; }
+.prompt-item { padding: 9px; border: 1px solid var(--line); border-radius: 10px; background: #181925; }
+.prompt-item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.prompt-number { color: var(--accent); font-size: 10px; font-weight: 800; }
+.prompt-state { color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+.prompt-item textarea { display: block; width: 100%; min-height: 49px; resize: vertical; border: 0; outline: 0; color: #e8e7f0; background: transparent; font: inherit; font-size: 11px; line-height: 1.5; }
+.prompt-error { color: #ffaaa9; margin-top: 5px; font-size: 10px; }
+.status-pill { padding: 5px 8px; color: #d6bcff; background: #302541; border-radius: 999px; font-size: 9px; font-weight: 800; text-transform: uppercase; }
+.progress-track { height: 5px; overflow: hidden; border-radius: 9px; background: #303142; }
+.progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #9c76ee, #d1afff); transition: width .2s ease; }
+.progress-summary { color: #deddea; margin-top: 8px; font-size: 11px; }
+.current-prompt { color: var(--muted); margin-top: 8px; font-size: 10px; line-height: 1.45; }
+.status-message { min-height: 30px; color: #d1cfe0; margin-top: 8px; font-size: 10px; line-height: 1.5; }
+.controls { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+.controls-confirm { padding-top: 10px; border-top: 1px solid var(--line); }
+.button { min-height: 32px; padding: 0 10px; border: 1px solid transparent; border-radius: 8px; cursor: pointer; font: inherit; font-size: 10px; font-weight: 700; }
+.button:disabled { cursor: not-allowed; opacity: .4; }
+.button-primary { color: #20182e; background: #c3a4ff; }
+.button-primary:hover:not(:disabled) { background: #d2baff; }
+.button-secondary { color: #e7ddff; background: #302541; }
+.button-quiet { color: #deddea; border-color: var(--line); background: transparent; }
+.fine-print { color: #8e90a3; margin-top: 10px; font-size: 9px; line-height: 1.45; }

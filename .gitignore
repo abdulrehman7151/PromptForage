@@ -1,0 +1,10 @@
+node_modules/
+dist/
+extension-dist/
+.playwright-user-data/
+generated/
+pdfs/
+.env
+.env.*
+!.env.example
+*.log

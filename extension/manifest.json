@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "PromptForage",
+  "version": "1.0.0",
+  "description": "Review numbered PDF prompts and send them to Google Flow one at a time.",
+  "action": {
+    "default_title": "PromptForage",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "downloads",
+    "activeTab",
+    "scripting",
+    "debugger",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://flow.google.com/*",
+    "https://labs.google/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://flow.google.com/*",
+        "https://labs.google/fx/tools/flow/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
